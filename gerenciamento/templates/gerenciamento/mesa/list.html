@@ -1,0 +1,32 @@
+{% extends 'gerenciamento/base.html' %}
+
+{% block title %}Mesas{% endblock %}
+
+{% block content %}
+<h1>Mesas</h1>
+<a href="{% url 'criar_mesa' %}">Adicionar Mesa</a>
+<table>
+    <thead>
+        <tr>
+            <th>Número</th>
+            <th>Capacidade</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mesa in mesas %}
+        <tr>
+            <td>{{ mesa.numero }}</td>
+            <td>{{ mesa.capacidade }}</td>
+            <td>
+                {% if mesa.ocupada %}
+                    Ocupada
+                {% else %}
+                    Livre
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

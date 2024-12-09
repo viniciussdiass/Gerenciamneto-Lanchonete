@@ -1,0 +1,28 @@
+{% extends 'gerenciamento/base.html' %}
+
+{% block title %}Produtos{% endblock %}
+
+{% block content %}
+<h1>Produtos</h1>
+<a href="/produto/create/">Adicionar Produto</a>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for produto in produtos %}
+        <tr>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td>{{ produto.preco }}</td>
+            <td>{{ produto.categoria.nome }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
