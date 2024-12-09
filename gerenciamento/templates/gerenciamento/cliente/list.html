@@ -4,7 +4,7 @@
 
 {% block content %}
 <h1>Clientes</h1>
-<a href="/cliente/create/">Adicionar Cliente</a>
+<a href="{% url 'criar_cliente' %}">Adicionar Cliente</a>
 <table>
     <thead>
         <tr>
@@ -12,6 +12,7 @@
             <th>Email</th>
             <th>Telefone</th>
             <th>Endereço</th>
+            <th>Ações</th> 
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,10 @@
             <td>{{ cliente.email }}</td>
             <td>{{ cliente.telefone }}</td>
             <td>{{ cliente.endereco }}</td>
+            <td>
+                <a href="{% url 'editar_cliente' cliente.id %}">Editar</a> | 
+                <a href="{% url 'excluir_cliente' cliente.id %}" onclick="return confirm('Tem certeza que deseja excluir?');">Excluir</a>
+            </td> 
         </tr>
         {% endfor %}
     </tbody>

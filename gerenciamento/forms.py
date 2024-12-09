@@ -30,3 +30,5 @@ class PedidoForm(forms.ModelForm):
     class Meta:
         model = Pedido
         fields = '__all__'
+    
+    descricao = forms.CharField(widget=forms.Textarea, required=False)  

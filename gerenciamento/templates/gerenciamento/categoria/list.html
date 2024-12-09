@@ -4,12 +4,13 @@
 
 {% block content %}
 <h1>Categorias</h1>
-<a href="/categoria/create/">Adicionar Categoria</a>
+<a href="{% url 'criar_categoria' %}">Adicionar Categoria</a>
 <table>
     <thead>
         <tr>
             <th>Nome</th>
             <th>Descrição</th>
+            <th>Ações</th> 
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,10 @@
         <tr>
             <td>{{ categoria.nome }}</td>
             <td>{{ categoria.descricao }}</td>
+            <td>
+                <a href="{% url 'editar_categoria' categoria.id %}">Editar</a> | 
+                <a href="{% url 'excluir_categoria' categoria.id %}" onclick="return confirm('Tem certeza que deseja excluir?');">Excluir</a>
+            </td> 
         </tr>
         {% endfor %}
     </tbody>

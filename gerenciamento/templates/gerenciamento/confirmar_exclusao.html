@@ -1,0 +1,12 @@
+{% extends 'gerenciamento/base.html' %}
+
+{% block title %}Excluir Mesa{% endblock %}
+
+{% block content %}
+<h1>Tem certeza que deseja excluir a Mesa {{ mesa.numero }}?</h1>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Confirmar Exclusão</button>
+</form>
+<a href="{% url 'listar_mesas' %}">Cancelar</a>
+{% endblock %}

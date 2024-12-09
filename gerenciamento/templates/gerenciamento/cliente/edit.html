@@ -1,0 +1,15 @@
+{% extends 'gerenciamento/base.html' %}
+
+{% block title %}Editar Cliente{% endblock %}
+
+{% block content %}
+<h1>Editar Cliente</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar alterações</button>
+</form>
+
+<a href="{% url 'listar_clientes' %}">Cancelar</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'gerenciamento/base.html' %}
+
+{% block title %}Editar Mesa{% endblock %}
+
+{% block content %}
+<h1>Editar Mesa</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar alterações</button>
+</form>
+
+<a href="{% url 'listar_mesas' %}">Cancelar</a>
+{% endblock %}

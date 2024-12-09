@@ -11,6 +11,7 @@
             <th>Número</th>
             <th>Capacidade</th>
             <th>Status</th>
+            <th>Ações</th> 
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,10 @@
                     Livre
                 {% endif %}
             </td>
+            <td>
+                <a href="{% url 'editar_mesa' mesa.id %}">Editar</a> | 
+                <a href="{% url 'excluir_mesa' mesa.id %}" onclick="return confirm('Tem certeza que deseja excluir?');">Excluir</a>
+            </td> 
         </tr>
         {% endfor %}
     </tbody>

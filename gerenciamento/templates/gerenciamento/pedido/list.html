@@ -4,7 +4,7 @@
 
 {% block content %}
 <h1>Pedidos</h1>
-<a href="/pedido/create/">Adicionar Pedido</a>
+<a href="{% url 'criar_pedido' %}">Adicionar Pedido</a>
 <table>
     <thead>
         <tr>
@@ -14,6 +14,8 @@
             <th>Funcionário</th>
             <th>Data</th>
             <th>Preço Total</th>
+            <th>Descrição</th> 
+            <th>Ações</th> 
         </tr>
     </thead>
     <tbody>
@@ -25,6 +27,11 @@
             <td>{{ pedido.funcionario.nome }}</td>
             <td>{{ pedido.data_pedido }}</td>
             <td>{{ pedido.preco_total }}</td>
+            <td>{{ pedido.descricao|default:"Sem descrição" }}</td> 
+            <td>
+                <a href="{% url 'editar_pedido' pedido.id %}">Editar</a> | 
+                <a href="{% url 'excluir_pedido' pedido.id %}" onclick="return confirm('Tem certeza que deseja excluir?');">Excluir</a>
+            </td> 
         </tr>
         {% endfor %}
     </tbody>
